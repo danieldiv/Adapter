@@ -4,12 +4,16 @@
 
 using namespace std;
 
-// O Target define a interface específica do domínio usada pelo código do cliente.
-
+/**
+ * O Target define a interface específica do domínio usada pelo código do cliente.
+ */
 class Target {
 public:
 	virtual ~Target() = default;
-	virtual string Requisicao() { return "Target: Quando se utiliza diretamente o target"; }
+
+	virtual string Requisicao() {
+		return "Target: Quando se utiliza diretamente o target";
+	}
 };
 
 /**
@@ -19,10 +23,14 @@ public:
  */
 class Exemplo {
 public:
-	string RequisicaoEspecifica() { return "olpmexE od ocificepse otnematropmoC"; }
+	string RequisicaoEspecifica() {
+		return "olpmexE od ocificepse otnematropmoC";
+	}
 };
 
-// O Adapter torna a interface do Exemplo compatível com a interface do Target
+/**
+ * O Adapter torna a interface do Exemplo compatível com a interface do Target
+ */
 class Adapter : public Target {
 private:
 	Exemplo *exemplo_;
@@ -37,8 +45,12 @@ public:
 	}
 };
 
-// O código cliente suporta todas as classes que seguem a interface Target
-void ClientCode(Target *target) { cout << target->Requisicao() << endl; };
+/**
+ * O código cliente suporta todas as classes que seguem a interface Target
+ */
+void ClientCode(Target *target) {
+	cout << target->Requisicao() << endl;
+};
 
 int main() {
 	cout << "Cliente: Eu posso trabalhar muito bem com os objetos Target:\n";
